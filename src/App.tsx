@@ -1,187 +1,17 @@
-import { useState, useRef, type ReactNode } from 'react';
-import { motion, useInView } from 'motion/react';
+import { useState } from 'react';
+import { motion } from 'motion/react';
 import {
   Mail, Phone, MapPin, Linkedin, Github,
   Code2, Gamepad2, Brain, ChevronDown,
-  ExternalLink, Play, Pause, Download,
+  ExternalLink, Play, Download,
 } from 'lucide-react';
 
-// ─── Data ────────────────────────────────────────────────────────────────────
-
-const SKILLS_CATEGORIES = [
-  {
-    title: 'Languages',
-    icon: 'code',
-    color: 'from-violet-500 to-purple-600',
-    items: ['JavaScript', 'TypeScript', 'C#', 'HTML', 'CSS'],
-  },
-  {
-    title: 'Frontend',
-    icon: 'link',
-    color: 'from-cyan-500 to-blue-600',
-    items: ['React', 'Next.js', 'React Native', 'Tailwind CSS', 'Vite'],
-  },
-  {
-    title: 'Game Dev',
-    icon: 'gamepad',
-    color: 'from-orange-500 to-red-600',
-    items: ['Unity Engine', 'C#', 'Augmented Reality', 'Virtual Reality', 'WebGL', 'Game Design', 'Level Design'],
-  },
-  {
-    title: 'AI & Data',
-    icon: 'brain',
-    color: 'from-emerald-500 to-teal-600',
-    items: ['OpenAI GPT-4', 'RAG Systems', 'Machine Learning', 'Computer Vision', 'Pulumi IaC', 'YOLOv10'],
-  },
-];
-
-const EXPERIENCE = [
-  {
-    role: 'AI Developer (Intern)',
-    company: 'StartMeUp.AI',
-    period: '6/2025 – 8/2025',
-    location: 'Remote, Lebanon',
-    highlights: [
-      'Developed 10 specialized AI agents using Next.js 15, TypeScript, and OpenAI GPT-4.',
-      'Built infrastructure automation with Pulumi IaC and intelligent cost optimization.',
-      'Implemented RAG systems with similarity matching and relevance scoring.',
-      'Achieved 80%+ test coverage with Jest, React Testing Library, and Playwright.',
-      'Built project management tools with GitHub integration and automated issue triage.',
-    ],
-    accent: 'from-violet-500 to-purple-600',
-  },
-  {
-    role: 'ReactJS Developer',
-    company: 'ScaryByte',
-    period: '10/2024 – Present',
-    location: 'Beirut, Lebanon',
-    highlights: [
-      'Developed and maintained user interfaces using React and JSX.',
-      'Created reusable components to enhance code efficiency and maintainability.',
-      'Collaborated with cross-functional teams to implement new features.',
-      'Adhered to best practices ensuring code quality and performance.',
-    ],
-    accent: 'from-cyan-500 to-blue-600',
-  },
-  {
-    role: 'Data Science',
-    company: 'Zaka.ai',
-    period: '05/2024 – 09/2024',
-    location: 'Remote, Lebanon',
-    highlights: [
-      'Certified program covering data science and machine learning end-to-end.',
-      'Computer vision project: predicting anomalies from dental X-ray images.',
-      'Applied preprocessing and augmentation over the dataset.',
-      'Trained YOLOv10, Faster RCNN, and DETR models for best accuracy.',
-    ],
-    accent: 'from-emerald-500 to-teal-600',
-  },
-  {
-    role: 'Unity Game Developer',
-    company: 'Freelance',
-    period: '10/2023 – 05/2024',
-    location: 'Remote, Lebanon',
-    highlights: [
-      'Developed AR game for children in dentist clinics on Android using Voidar SDK.',
-      'Built a VR simulation for safe electric scooter training using Unity and C#.',
-      'Delivered AR, VR, and WebGL experiences.',
-    ],
-    accent: 'from-orange-500 to-red-600',
-  },
-  {
-    role: 'Unity Mobile Game Developer',
-    company: 'Playholding',
-    period: '09/2020 – 08/2023',
-    location: 'Beirut, Lebanon',
-    highlights: [
-      'Successfully launched 20+ high-quality mobile games on App Store and Google Play.',
-      'Independently developed game logic, mechanics, and features from scratch.',
-      'Optimized performance using CPU and GPU techniques for smooth mobile gameplay.',
-      'Integrated ad SDKs and performed A/B testing to improve retention.',
-      'Created GDDs, handled level design, and balanced gameplay experiences.',
-    ],
-    accent: 'from-yellow-500 to-orange-600',
-  },
-  {
-    role: 'Front-end Developer Intern',
-    company: 'Cloud Gate',
-    period: '06/2020 – 08/2020',
-    location: 'Beirut, Lebanon',
-    highlights: [
-      'Developed cross-platform apps using React Native and JavaScript.',
-      'Random Movie app: displays highly-rated movies with random discovery.',
-      'Instagram main page clone with dark mode layout.',
-    ],
-    accent: 'from-pink-500 to-rose-600',
-  },
-];
-
-const GAMES = [
-  {
-    title: 'Eco Revive',
-    video: '/videos/Eco%20Revive.mp4',
-    description: 'An engaging mobile game developed with Unity and C#, launched on iOS and Android.',
-    tags: ['Unity', 'C#', 'Mobile', 'iOS / Android'],
-  },
-  {
-    title: 'Tire Restoration',
-    video: '/videos/Tire%20restoration.mp4',
-    description: 'A satisfying mobile restoration game experience built with Unity and C#.',
-    tags: ['Unity', 'C#', 'Mobile', 'Game Design'],
-  },
-  {
-    title: 'Conquer',
-    video: '/videos/conquer.mp4',
-    description: 'A strategy mobile game built with Unity and C#.',
-    tags: ['Unity', 'C#', 'Mobile', 'Strategy'],
-  },
-  {
-    title: 'Pool Vacuum',
-    video: '/videos/Pool_Vacuum.mp4',
-    description: 'A satisfying pool cleaning simulation game developed with Unity and C#.',
-    tags: ['Unity', 'C#', 'Mobile', 'Simulation'],
-  },
-];
-
-// ─── Animation Variants ───────────────────────────────────────────────────────
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 36 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55 } },
-};
-
-const staggerContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-// ─── Reusable Components ──────────────────────────────────────────────────────
-
-function AnimatedSection({ id, children, className = '' }: { id: string; children: ReactNode; className?: string }) {
-  const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.1 });
-  return (
-    <motion.section
-      id={id}
-      ref={ref}
-      variants={staggerContainer}
-      initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
-      className={`py-20 px-6 max-w-6xl mx-auto ${className}`}
-    >
-      {children}
-    </motion.section>
-  );
-}
-
-function SectionTitle({ children }: { children: ReactNode }) {
-  return (
-    <motion.div variants={fadeUp} className="mb-12 text-center">
-      <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">{children}</h2>
-      <div className="h-1 w-16 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-cyan-500" />
-    </motion.div>
-  );
-}
+import { SKILLS_CATEGORIES, EXPERIENCE, GAMES } from './data';
+import { fadeUp } from './lib/animations';
+import { AnimatedSection } from './components/AnimatedSection';
+import { SectionTitle } from './components/SectionTitle';
+import { ExperienceCard } from './components/ExperienceCard';
+import { VideoCard } from './components/VideoCard';
 
 function SkillCategoryIcon({ icon }: { icon: string }) {
   if (icon === 'gamepad') return <Gamepad2 className="w-5 h-5 text-white" />;
@@ -190,100 +20,11 @@ function SkillCategoryIcon({ icon }: { icon: string }) {
   return <Code2 className="w-5 h-5 text-white" />;
 }
 
-function VideoCard({ game }: { game: typeof GAMES[0] }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
-
-  const toggle = () => {
-    if (!videoRef.current) return;
-    if (playing) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
-    }
-  };
-
-  return (
-    <motion.div
-      variants={fadeUp}
-      className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-violet-500/40 transition-colors duration-300"
-    >
-      <div className="relative aspect-[9/16] cursor-pointer" onClick={toggle}>
-        <video
-          ref={videoRef}
-          src={game.video}
-          className="w-full h-full object-cover"
-          loop
-          muted
-          playsInline
-          onPlay={() => setPlaying(true)}
-          onPause={() => setPlaying(false)}
-        />
-        <div
-          className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${
-            playing ? 'bg-black/0 opacity-0 group-hover:opacity-100' : 'bg-black/40'
-          }`}
-        >
-          <div className="w-16 h-16 rounded-full bg-violet-600/90 flex items-center justify-center backdrop-blur-sm shadow-lg shadow-violet-900/50">
-            {playing
-              ? <Pause className="w-6 h-6 text-white" fill="white" />
-              : <Play className="w-6 h-6 text-white ml-1" fill="white" />
-            }
-          </div>
-        </div>
-      </div>
-      <div className="p-5">
-        <h3 className="text-xl font-bold text-white mb-2">{game.title}</h3>
-        <p className="text-gray-400 text-sm mb-4 leading-relaxed">{game.description}</p>
-        <div className="flex flex-wrap gap-2">
-          {game.tags.map(tag => (
-            <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-violet-500/15 text-violet-300 border border-violet-500/25">
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-function ExperienceCard({ exp }: { exp: typeof EXPERIENCE[0] }) {
-  return (
-    <motion.div variants={fadeUp} className="relative pl-8 pb-8 last:pb-0">
-      <div className="absolute left-0 top-0 bottom-0 w-px bg-white/10" />
-      <div className={`absolute left-[-5px] top-2 w-3 h-3 rounded-full bg-gradient-to-br ${exp.accent} shadow-sm`} />
-      <div className="bg-white/[0.03] border border-white/10 rounded-xl p-5 hover:border-white/20 transition-colors">
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-4">
-          <div>
-            <h3 className="text-lg font-bold text-white">{exp.role}</h3>
-            <span className={`text-sm font-semibold bg-gradient-to-r ${exp.accent} bg-clip-text text-transparent`}>
-              {exp.company}
-            </span>
-          </div>
-          <div className="sm:text-right shrink-0">
-            <p className="text-gray-400 text-sm">{exp.period}</p>
-            <p className="text-gray-600 text-xs">{exp.location}</p>
-          </div>
-        </div>
-        <ul className="space-y-1.5">
-          {exp.highlights.map((h, i) => (
-            <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
-              <span className="text-violet-500 mt-0.5 shrink-0">▸</span>
-              {h}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </motion.div>
-  );
-}
-
-// ─── Main App ─────────────────────────────────────────────────────────────────
+const NAV_LINKS = ['about', 'skills', 'experience', 'projects', 'games', 'capstone', 'education', 'contact'] as const;
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [welcomed, setWelcomed] = useState(false);
-  const navLinks = ['about', 'skills', 'experience', 'projects', 'games', 'capstone', 'education', 'contact'];
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -342,7 +83,7 @@ export default function App() {
           </button>
 
           <div className="hidden md:flex items-center gap-7">
-            {navLinks.map(link => (
+            {NAV_LINKS.map(link => (
               <button
                 key={link}
                 onClick={() => scrollTo(link)}
@@ -373,7 +114,7 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             className="md:hidden border-t border-white/[0.06] bg-[#06060f] px-6 py-4 space-y-3"
           >
-            {navLinks.map(link => (
+            {NAV_LINKS.map(link => (
               <button
                 key={link}
                 onClick={() => scrollTo(link)}
