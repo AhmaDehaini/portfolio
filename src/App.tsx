@@ -52,9 +52,9 @@ const EXPERIENCE = [
   },
   {
     role: 'ReactJS Developer',
-    company: 'Hornet Strike',
+    company: 'ScaryByte',
     period: '10/2024 – Present',
-    location: 'Tyre, Lebanon',
+    location: 'Beirut, Lebanon',
     highlights: [
       'Developed and maintained user interfaces using React and JSX.',
       'Created reusable components to enhance code efficiency and maintainability.',
@@ -282,7 +282,8 @@ function ExperienceCard({ exp }: { exp: typeof EXPERIENCE[0] }) {
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navLinks = ['about', 'skills', 'experience', 'games', 'education', 'contact'];
+  const [welcomed, setWelcomed] = useState(false);
+  const navLinks = ['about', 'skills', 'experience', 'projects', 'games', 'capstone', 'education', 'contact'];
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -291,6 +292,40 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#06060f] text-white overflow-x-hidden font-sans">
+
+      {/* ── Welcome Splash ── */}
+      {!welcomed && (
+        <motion.div
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{ delay: 2, duration: 0.8 }}
+          onAnimationComplete={() => setWelcomed(true)}
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#06060f] pointer-events-none"
+        >
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-gray-500 font-mono text-xs tracking-[0.3em] uppercase mb-4"
+          >
+            Welcome to my portfolio
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-violet-400 via-purple-300 to-cyan-400 bg-clip-text text-transparent tracking-tight"
+          >
+            Ahmad Dehaini
+          </motion.h1>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="mt-5 h-px w-32 bg-gradient-to-r from-violet-500 to-cyan-500 origin-left"
+          />
+        </motion.div>
+      )}
 
       {/* Ambient glow blobs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
@@ -534,6 +569,89 @@ export default function App() {
         </AnimatedSection>
       </div>
 
+      {/* ── React Projects ── */}
+      <div className="bg-white/[0.015] border-t border-white/[0.06]">
+        <AnimatedSection id="projects">
+          <SectionTitle>React Projects</SectionTitle>
+          <motion.p variants={fadeUp} className="text-center text-gray-500 mb-10 max-w-xl mx-auto text-sm leading-relaxed">
+            Shipping production-grade web products at ScaryByte — leveraging AI tools (GitHub Copilot, Claude, Lovable, and others) to accelerate delivery while maintaining full oversight and quality control over every detail.
+          </motion.p>
+          <div className="max-w-4xl mx-auto space-y-5">
+
+            {/* Platform Replacement */}
+            <motion.div variants={fadeUp} className="bg-white/[0.03] border border-white/10 rounded-xl p-6 hover:border-cyan-500/20 transition-colors">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
+                <div>
+                  <h3 className="text-white font-bold text-lg">Platform Replacement — Full Stack</h3>
+                  <p className="text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mt-0.5">ScaryByte</p>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/25 font-semibold">&lt; 1 Month</span>
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                Identified that the company was paying <span className="text-white font-semibold">$10,000 / month</span> for a third-party SaaS platform. Built a full replacement from scratch — frontend and backend — in under one month, resulting in immediate savings of $10,000 per month for the company.
+              </p>
+              <div className="grid grid-cols-3 gap-4 mb-6">
+                {[
+                  { label: 'Monthly Savings', value: '$10K', color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
+                  { label: 'Build Time', value: '< 1 mo', color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+                  { label: 'Stack', value: 'Full', color: 'text-violet-400', bg: 'bg-violet-500/10' },
+                ].map(stat => (
+                  <div key={stat.label} className={`${stat.bg} rounded-lg p-4 text-center`}>
+                    <p className={`${stat.color} font-bold text-xl`}>{stat.value}</p>
+                    <p className="text-gray-500 text-xs mt-1">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {['React', 'TypeScript', 'Full Stack', 'AI-Assisted Dev', 'GitHub Copilot', 'Claude', 'Lovable'].map(tag => (
+                  <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">{tag}</span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Data Provider Platform */}
+            <motion.div variants={fadeUp} className="bg-white/[0.03] border border-white/10 rounded-xl p-6 hover:border-cyan-500/20 transition-colors">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+                <div>
+                  <h3 className="text-white font-bold text-lg">Data Provider Platform</h3>
+                  <p className="text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mt-0.5">ScaryByte — In Progress</p>
+                </div>
+                <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-400 border border-cyan-500/25 font-semibold shrink-0 self-start">Concurrent</span>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                Building a data provider platform in parallel — developed simultaneously alongside the platform replacement project, managing both workstreams with AI-assisted tooling under strict human review.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {['React', 'TypeScript', 'Data Platform', 'AI-Assisted Dev'].map(tag => (
+                  <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">{tag}</span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* AI-Assisted Dev Philosophy */}
+            <motion.div variants={fadeUp} className="bg-white/[0.03] border border-white/10 rounded-xl p-5">
+              <h3 className="text-white font-semibold text-sm mb-3">AI-Assisted Development Approach</h3>
+              <ul className="space-y-2">
+                {[
+                  'Used GitHub Copilot, Claude, Lovable, and other AI tools to accelerate development velocity.',
+                  'Maintained full managerial control — reviewed every AI-generated output before integration.',
+                  'Ensured no full AI autonomy over production code; every detail audited and validated personally.',
+                  'Balanced speed of AI tooling with engineering discipline and code quality standards.',
+                ].map((point, i) => (
+                  <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
+                    <span className="text-cyan-500 mt-0.5 shrink-0">▸</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+          </div>
+        </AnimatedSection>
+      </div>
+
       {/* ── Games ── */}
       <div className="bg-white/[0.015] border-t border-white/[0.06]">
         <AnimatedSection id="games">
@@ -545,6 +663,98 @@ export default function App() {
             {GAMES.map(game => (
               <VideoCard key={game.title} game={game} />
             ))}
+          </div>
+        </AnimatedSection>
+      </div>
+
+      {/* ── Capstone Project ── */}
+      <div className="border-t border-white/[0.06]">
+        <AnimatedSection id="capstone">
+          <SectionTitle>AI Capstone Project</SectionTitle>
+          <motion.p variants={fadeUp} className="text-center text-gray-500 mb-10 max-w-xl mx-auto text-sm leading-relaxed">
+            A 40-week intensive program at Zaka.ai — 20 weeks of machine learning &amp; data science foundations followed by a 20-week computer vision capstone project.
+          </motion.p>
+          <div className="max-w-4xl mx-auto space-y-6">
+
+            {/* Dataset Overview */}
+            <motion.div variants={fadeUp} className="bg-white/[0.03] border border-white/10 rounded-xl p-6">
+              <h3 className="text-white font-bold text-lg mb-3">Dental X-Ray Anomaly Detection</h3>
+              <p className="text-gray-400 text-sm mb-5 leading-relaxed">
+                Trained and evaluated multiple deep learning models to detect dental anomalies in X-ray images, working with a limited dataset of 437 annotated images across three anomaly classes: <span className="text-gray-300">Lesions</span>, <span className="text-gray-300">Cavity</span>, and <span className="text-gray-300">Mental Foramen</span>.
+              </p>
+              <div className="grid grid-cols-3 gap-4">
+                {[
+                  { label: 'X-Ray Images', value: '437', color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
+                  { label: 'Anomaly Classes', value: '3', color: 'text-violet-400', bg: 'bg-violet-500/10' },
+                  { label: 'Models Trained', value: '3', color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+                ].map(stat => (
+                  <div key={stat.label} className={`${stat.bg} rounded-lg p-4 text-center`}>
+                    <p className={`${stat.color} font-bold text-2xl`}>{stat.value}</p>
+                    <p className="text-gray-500 text-xs mt-1">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* YOLOv10 Per-Anomaly Results */}
+            <motion.div variants={fadeUp} className="bg-white/[0.03] border border-white/10 rounded-xl p-6">
+              <h3 className="text-white font-bold text-base mb-5">YOLOv10 — Per-Anomaly Accuracy</h3>
+              <div className="space-y-4">
+                {[
+                  { label: 'Mental Foramen', accuracy: 80, color: 'from-emerald-500 to-teal-500', note: 'Best result' },
+                  { label: 'Cavity', accuracy: 25, color: 'from-orange-500 to-amber-500', note: '' },
+                  { label: 'Lesions', accuracy: 12.5, color: 'from-red-500 to-rose-500', note: '' },
+                ].map(item => (
+                  <div key={item.label}>
+                    <div className="flex justify-between items-center mb-1.5">
+                      <div className="flex items-center gap-2">
+                        <span className="text-gray-300 text-sm">{item.label}</span>
+                        {item.note && (
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/25">{item.note}</span>
+                        )}
+                      </div>
+                      <span className="text-gray-400 text-sm font-mono">{item.accuracy}%</span>
+                    </div>
+                    <div className="h-2 bg-white/[0.06] rounded-full overflow-hidden">
+                      <div
+                        className={`h-full rounded-full bg-gradient-to-r ${item.color}`}
+                        style={{ width: `${item.accuracy}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Model Comparison */}
+            <motion.div variants={fadeUp} className="grid sm:grid-cols-3 gap-4">
+              {[
+                { model: 'YOLOv10', note: 'Mental Foramen detection', accuracy: '80%', color: 'from-emerald-500 to-teal-600' },
+                { model: 'DenseNet121', note: 'Best overall classifier', accuracy: '53%', color: 'from-violet-500 to-purple-600' },
+                { model: 'Faster RCNN', note: 'Object detection baseline', accuracy: '—', color: 'from-cyan-500 to-blue-600' },
+              ].map(m => (
+                <div key={m.model} className="bg-white/[0.03] border border-white/10 rounded-xl p-5 text-center hover:border-white/20 transition-colors">
+                  <div className={`h-1 w-10 mx-auto rounded-full bg-gradient-to-r ${m.color} mb-4`} />
+                  <p className="text-white font-bold text-lg">{m.model}</p>
+                  <p className="text-gray-500 text-xs mb-3">{m.note}</p>
+                  <p className={`text-2xl font-black bg-gradient-to-r ${m.color} bg-clip-text text-transparent`}>{m.accuracy}</p>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Presentation Link */}
+            <motion.div variants={fadeUp} className="text-center pt-2">
+              <a
+                href="https://docs.google.com/presentation/d/1t54H2Yt6emGmPBVKmdpRNkIZbDBnf3dJ/edit?usp=sharing&ouid=108655775498616841102&rtpof=true&sd=true"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold text-sm hover:shadow-xl hover:shadow-emerald-600/30 hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <ExternalLink className="w-4 h-4" />
+                View Final Presentation
+              </a>
+            </motion.div>
+
           </div>
         </AnimatedSection>
       </div>
@@ -659,8 +869,18 @@ export default function App() {
       </div>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-white/[0.06] py-8 text-center">
-        <p className="text-gray-700 text-sm">
+      <footer className="border-t border-white/[0.06] py-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-6 space-y-1"
+        >
+          <p className="text-gray-400 text-sm">Thank you for taking the time to visit my portfolio.</p>
+          <p className="text-gray-600 text-xs">It means a lot — I hope you enjoyed exploring my work.</p>
+        </motion.div>
+        <p className="text-gray-700 text-xs">
           © {new Date().getFullYear()} Ahmad Dehaini
         </p>
       </footer>
