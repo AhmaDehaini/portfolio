@@ -20,7 +20,7 @@ function SkillCategoryIcon({ icon }: { icon: string }) {
   return <Code2 className="w-5 h-5 text-white" />;
 }
 
-const NAV_LINKS = ['about', 'skills', 'experience', 'projects', 'games', 'capstone', 'education', 'contact'] as const;
+const NAV_LINKS = ['about', 'skills', 'experience', 'projects', 'aurabrush', 'games', 'capstone', 'education', 'contact'] as const;
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -389,6 +389,56 @@ export default function App() {
               </ul>
             </motion.div>
 
+          </div>
+        </AnimatedSection>
+      </div>
+
+      {/* ── AuraBrush AI ── */}
+      <div className="border-t border-white/[0.06]">
+        <AnimatedSection id="aurabrush">
+          <SectionTitle>AuraBrush AI</SectionTitle>
+          <div className="max-w-4xl mx-auto">
+            <motion.div variants={fadeUp} className="bg-white/[0.03] border border-white/10 rounded-xl overflow-hidden hover:border-fuchsia-500/20 transition-colors">
+              <div className="relative">
+                <img
+                  src="/Aurabrush/aurabrush-ai.png"
+                  alt="AuraBrush AI screenshot"
+                  className="w-full object-cover max-h-[480px]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#06060f] via-transparent to-transparent" />
+              </div>
+              <div className="p-8">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5">
+                  <div>
+                    <h3 className="text-2xl font-black text-white">AuraBrush AI</h3>
+                    <p className="text-sm font-semibold bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent mt-1">Personal Project &nbsp;·&nbsp; 4/2026 – Present</p>
+                  </div>
+                  <a
+                    href="https://aurabrush-ai.netlify.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-pink-600 to-fuchsia-600 text-white font-semibold text-sm hover:shadow-xl hover:shadow-fuchsia-600/30 hover:-translate-y-0.5 transition-all duration-200 shrink-0"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Visit Live App
+                  </a>
+                </div>
+                <p className="text-gray-400 leading-relaxed text-sm">
+                  AuraBrush AI is a full-stack, AI-powered web application built with React, TypeScript, Node.js, and Express.
+                  Users generate unique coloring-book-style images through an OpenAI integration that runs on a credit-based
+                  system — controlling how many generations each user can request. Once an image is generated, it can be
+                  painted interactively directly in the browser using a custom painting interface with brush, fill, and eraser
+                  tools. The application includes full backend authentication — signup and login flows — as well as user
+                  management and credit-tracking logic, giving every session a seamless end-to-end experience from account
+                  creation to finished artwork.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-5">
+                  {['React', 'TypeScript', 'Node.js', 'Express', 'OpenAI API', 'Full Stack', 'Authentication'].map(tag => (
+                    <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-fuchsia-500/10 text-fuchsia-300 border border-fuchsia-500/20">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
         </AnimatedSection>
       </div>

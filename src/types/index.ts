@@ -12,6 +12,7 @@ export interface ExperienceItem {
   location: string;
   highlights: string[];
   accent: string;
+  image?: string;
 }
 
 export interface Game {

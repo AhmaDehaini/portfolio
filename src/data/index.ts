@@ -29,6 +29,21 @@ export const SKILLS_CATEGORIES: SkillCategory[] = [
 
 export const EXPERIENCE: ExperienceItem[] = [
   {
+    role: 'AuraBrush-AI',
+    company: 'Personal AI Project',
+    period: '4/2026 – Present',
+    location: 'Remote. Beirut, Lebanon',
+    highlights: [
+      'Developed a full-stack AI-powered web application using React, TypeScript, Node.js, and Express.',
+      'Integrated OpenAI APIs to generate AI coloring images with a credit-based generation system.',
+      'Built frontend interfaces for image generation, painting, and interactive user workflows.',
+      'Implemented backend authentication and user management features including signup/login functionality.',
+      'Designed application logic for credit tracking and controlled AI image generation requests.',
+      'Managed end-to-end application development from frontend UI to backend API integration and deployment.',
+    ],
+    accent: 'from-pink-500 to-fuchsia-600',
+  },
+  {
     role: 'AI Developer (Intern)',
     company: 'StartMeUp.AI',
     period: '6/2025 – 8/2025',

@@ -28,6 +28,11 @@ export function ExperienceCard({ exp }: { exp: ExperienceItem }) {
             </li>
           ))}
         </ul>
+        {exp.image && (
+          <div className="mt-4 rounded-lg overflow-hidden border border-white/10">
+            <img src={exp.image} alt={`${exp.company} screenshot`} className="w-full object-cover max-h-64" />
+          </div>
+        )}
       </div>
     </motion.div>
   );
