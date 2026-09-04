@@ -468,7 +468,7 @@ export default function App() {
                     <p className="text-sm font-semibold bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent mt-1">Personal Project &nbsp;·&nbsp; 4/2026 – Present</p>
                   </div>
                   <a
-                    href="https://aurabrush-ai.netlify.app/"
+                    href="https://aura-brush.com/"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-pink-600 to-fuchsia-600 text-white font-semibold text-sm hover:shadow-xl hover:shadow-fuchsia-600/30 hover:-translate-y-0.5 transition-all duration-200 shrink-0"
