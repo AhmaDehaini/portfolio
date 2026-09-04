@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import {
   Mail, Phone, MapPin, Linkedin, Github,
   Code2, Gamepad2, Brain, ChevronDown, Server,
-  ExternalLink, Play, Download,
+  ExternalLink, Play, Download, BadgeCheck, Building2,
 } from 'lucide-react';
 
 import { SKILLS_CATEGORIES, EXPERIENCE, GAMES } from './data';
@@ -128,103 +128,115 @@ export default function App() {
         )}
       </nav>
 
-      {/* ── Hero ── */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-16 pb-24">
+      {/* ── LinkedIn-inspired profile hero ── */}
+      <section className="relative px-4 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-20">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="max-w-3xl"
+          className="max-w-5xl mx-auto overflow-hidden rounded-2xl border border-white/10 bg-[#10101c] shadow-2xl shadow-black/40"
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-violet-400 font-mono text-xs tracking-[0.25em] uppercase mb-5"
-          >
-            Frontend-Focused Full-Stack Developer
-          </motion.p>
-
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-black leading-none mb-6">
-            <span className="bg-gradient-to-r from-violet-400 via-purple-300 to-cyan-400 bg-clip-text text-transparent">
-              Ahmad
-            </span>
-            <br />
-            <span className="text-white">Dehaini</span>
-          </h1>
-
-          <p className="text-gray-400 text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-            Full-Stack Developer &nbsp;·&nbsp; Game Developer &nbsp;·&nbsp; AI Enthusiast
-            <br />
-            Building complete web products with a sharp focus on frontend craft and user experience.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            <button
-              onClick={() => scrollTo('games')}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 text-white font-semibold text-sm hover:shadow-xl hover:shadow-violet-600/30 hover:-translate-y-0.5 transition-all duration-200"
-            >
-              <Gamepad2 className="w-4 h-4" />
-              View Games
-            </button>
-            <button
-              onClick={() => scrollTo('experience')}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/15 text-gray-300 hover:text-white hover:border-white/30 hover:bg-white/5 font-semibold text-sm transition-all duration-200"
-            >
-              <Code2 className="w-4 h-4" />
-              My Experience
-            </button>
-            <a
-              href="mailto:ahmad.dehaini.8@gmail.com"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400/50 font-semibold text-sm transition-all duration-200"
-            >
-              <Mail className="w-4 h-4" />
-              Hire Me
-            </a>
-            <a
-              href="/CV/Ahmad%20Dehaini%20CV.pdf"
-              download
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-violet-500/30 text-violet-400 hover:bg-violet-500/10 hover:border-violet-400/50 font-semibold text-sm transition-all duration-200"
-            >
-              <Download className="w-4 h-4" />
-              Download CV
-            </a>
+          <div className="relative h-40 overflow-hidden border-b border-white/[0.08] sm:h-52">
+            <img
+              src="/profile/banner.png"
+              alt="Developer-themed banner with programming and game development illustrations"
+              className="h-full w-full object-cover object-center"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#10101c]/20 via-transparent to-black/5" />
           </div>
 
-          <div className="flex justify-center gap-3">
-            <a
-              href="https://linkedin.com/in/ahmad-dehaini/"
-              target="_blank"
-              rel="noreferrer"
-              className="p-2.5 rounded-full border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all duration-200 group"
-            >
-              <Linkedin className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors" />
-            </a>
-            <a
-              href="https://github.com/ahmd-92"
-              target="_blank"
-              rel="noreferrer"
-              className="p-2.5 rounded-full border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all duration-200 group"
-            >
-              <Github className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors" />
-            </a>
-            <a
-              href="https://github.com/AhmaDehaini"
-              target="_blank"
-              rel="noreferrer"
-              className="p-2.5 rounded-full border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all duration-200 group"
-            >
-              <Github className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors" />
-            </a>
+          <div className="relative px-5 pb-6 sm:px-8 sm:pb-8">
+            <div className="absolute -top-16 left-5 sm:-top-20 sm:left-8">
+              <img
+                src="/profile/profile_pic.jpg"
+                alt="Ahmad Dehaini"
+                className="h-32 w-32 rounded-full border-[5px] border-[#10101c] object-cover object-center shadow-xl sm:h-40 sm:w-40"
+              />
+            </div>
+
+            <div className="min-h-20 sm:min-h-24" aria-hidden="true" />
+
+            <div className="mt-3 grid gap-6 md:grid-cols-[minmax(0,1fr)_230px] md:items-start">
+              <div>
+                <h1 className="flex items-center gap-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  Ahmad Dehaini
+                  <BadgeCheck className="h-6 w-6 shrink-0 text-cyan-400 sm:h-7 sm:w-7" aria-label="Verified profile" />
+                </h1>
+                <p className="mt-2 max-w-2xl text-base leading-relaxed text-gray-300 sm:text-lg">
+                  Frontend-Focused Full-Stack Developer <span className="text-gray-600">|</span> Game Developer <span className="text-gray-600">|</span> AI Enthusiast
+                </p>
+                <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-gray-500">
+                  <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" />Beirut, Lebanon</span>
+                  <span aria-hidden="true">·</span>
+                  <a href="mailto:ahmad.dehaini.8@gmail.com" className="font-semibold text-cyan-400 hover:text-cyan-300">Contact info</a>
+                </p>
+                <p className="mt-3 text-sm font-semibold text-violet-400">Open to opportunities and collaborations</p>
+              </div>
+
+              <div className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.025] p-4 md:mt-1">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500/20 to-violet-500/20 text-cyan-300">
+                  <Building2 className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.16em] text-gray-600">Currently at</p>
+                  <p className="mt-0.5 font-semibold text-gray-200">ScaryByte</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href="mailto:ahmad.dehaini.8@gmail.com"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-violet-600/25"
+              >
+                <Mail className="h-4 w-4" />
+                Hire Me
+              </a>
+              <button
+                onClick={() => scrollTo('experience')}
+                className="inline-flex items-center gap-2 rounded-full border border-cyan-400/40 px-5 py-2.5 text-sm font-semibold text-cyan-300 transition-all duration-200 hover:border-cyan-300 hover:bg-cyan-400/10"
+              >
+                <Code2 className="h-4 w-4" />
+                View Experience
+              </button>
+              <a
+                href="/CV/Ahmad%20Dehaini%20CV.pdf"
+                download
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-gray-300 transition-all duration-200 hover:border-white/30 hover:bg-white/5 hover:text-white"
+              >
+                <Download className="h-4 w-4" />
+                Download CV
+              </a>
+              <a
+                href="https://linkedin.com/in/ahmad-dehaini/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open LinkedIn profile"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-gray-400 transition-all duration-200 hover:border-[#0a66c2]/70 hover:bg-[#0a66c2]/15 hover:text-[#69aef2]"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href="https://github.com/ahmd-92"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open GitHub profile"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-gray-400 transition-all duration-200 hover:border-white/30 hover:bg-white/5 hover:text-white"
+              >
+                <Github className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </motion.div>
 
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
-          className="absolute bottom-10"
+          className="mt-8 flex justify-center"
         >
-          <ChevronDown className="w-6 h-6 text-gray-700" />
+          <button onClick={() => scrollTo('about')} aria-label="Scroll to About Me" className="rounded-full p-2 text-gray-700 transition-colors hover:text-violet-400">
+            <ChevronDown className="h-6 w-6" />
+          </button>
         </motion.div>
       </section>
 
