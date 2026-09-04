@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
   Mail, Phone, MapPin, Linkedin, Github,
-  Code2, Gamepad2, Brain, ChevronDown,
+  Code2, Gamepad2, Brain, ChevronDown, Server,
   ExternalLink, Play, Download,
 } from 'lucide-react';
 
@@ -16,6 +16,7 @@ import { VideoCard } from './components/VideoCard';
 function SkillCategoryIcon({ icon }: { icon: string }) {
   if (icon === 'gamepad') return <Gamepad2 className="w-5 h-5 text-white" />;
   if (icon === 'brain') return <Brain className="w-5 h-5 text-white" />;
+  if (icon === 'server') return <Server className="w-5 h-5 text-white" />;
   if (icon === 'link') return <ExternalLink className="w-5 h-5 text-white" />;
   return <Code2 className="w-5 h-5 text-white" />;
 }
@@ -141,7 +142,7 @@ export default function App() {
             transition={{ delay: 0.3 }}
             className="text-violet-400 font-mono text-xs tracking-[0.25em] uppercase mb-5"
           >
-            Software Developer
+            Frontend-Focused Full-Stack Developer
           </motion.p>
 
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-black leading-none mb-6">
@@ -153,9 +154,9 @@ export default function App() {
           </h1>
 
           <p className="text-gray-400 text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-            Frontend Engineer &nbsp;·&nbsp; Game Developer &nbsp;·&nbsp; AI Enthusiast
+            Full-Stack Developer &nbsp;·&nbsp; Game Developer &nbsp;·&nbsp; AI Enthusiast
             <br />
-            Building immersive experiences — from interactive web apps to Unity games.
+            Building complete web products with a sharp focus on frontend craft and user experience.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 mb-8">
@@ -234,26 +235,25 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp} className="space-y-4 text-gray-400 leading-relaxed">
               <p>
-                Software engineer with a Master's degree in Computer and Communication Engineering,
-                combining frontend development expertise with AI specialization. Experienced in React,
-                Next.js, JavaScript, TypeScript, and Unity/C# game development.
+                Frontend-focused full-stack developer with a Master's degree in Computer and Communication
+                Engineering. I build complete web applications while specializing in responsive interfaces,
+                thoughtful interactions, and polished user experiences.
               </p>
               <p>
-                Completed an intensive AI Development internship with SMUAI, building enterprise-grade
-                AI agents with OpenAI integration and infrastructure automation. Certified in data science
-                with proficiency in machine learning and computer vision.
+                My backend work spans PHP/Laravel, Supabase, PostgreSQL, Node.js, Express, and Python,
+                including APIs, authentication, database design, serverless functions, and secure access control.
               </p>
               <p>
-                Passionate about advancing skills in AI development, modern web technologies, and
-                innovative application development.
+                I also bring five years of game-development experience and hands-on AI expertise, allowing
+                me to approach products with a strong blend of engineering, interaction design, and creativity.
               </p>
             </motion.div>
 
             <motion.div variants={fadeUp} className="grid grid-cols-2 gap-4">
               {[
-                { icon: <Code2 className="w-6 h-6" />, label: 'Frontend Dev', value: '2 Years', color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+                { icon: <Code2 className="w-6 h-6" />, label: 'Frontend Focus', value: 'Primary', color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+                { icon: <Server className="w-6 h-6" />, label: 'Full-Stack Delivery', value: 'End to End', color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
                 { icon: <Gamepad2 className="w-6 h-6" />, label: 'Game Developer', value: '5+ Years', color: 'text-violet-400', bg: 'bg-violet-500/10' },
-                { icon: <Brain className="w-6 h-6" />, label: 'AI / ML', value: 'Certified', color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
                 { icon: <Play className="w-6 h-6" />, label: 'Games Launched', value: '20+', color: 'text-orange-400', bg: 'bg-orange-500/10' },
               ].map(stat => (
                 <div
@@ -274,7 +274,7 @@ export default function App() {
       <div className="bg-white/[0.015] border-t border-white/[0.06]">
         <AnimatedSection id="skills">
           <SectionTitle>Skills & Technologies</SectionTitle>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {SKILLS_CATEGORIES.map(cat => (
               <motion.div
                 key={cat.title}
@@ -310,14 +310,68 @@ export default function App() {
         </AnimatedSection>
       </div>
 
-      {/* ── React Projects ── */}
+      {/* ── Full-Stack Projects ── */}
       <div className="bg-white/[0.015] border-t border-white/[0.06]">
         <AnimatedSection id="projects">
-          <SectionTitle>React Projects</SectionTitle>
+          <SectionTitle>Featured Full-Stack Projects</SectionTitle>
           <motion.p variants={fadeUp} className="text-center text-gray-500 mb-10 max-w-xl mx-auto text-sm leading-relaxed">
-            Shipping production-grade web products at ScaryByte — leveraging AI tools (GitHub Copilot, Claude, Lovable, and others) to accelerate delivery while maintaining full oversight and quality control over every detail.
+            End-to-end products built across responsive frontend experiences, secure backends, databases, authentication, and production deployment.
           </motion.p>
           <div className="max-w-4xl mx-auto space-y-5">
+
+            {/* BoardGoal */}
+            <motion.article variants={fadeUp} className="group bg-white/[0.03] border border-white/10 rounded-xl overflow-hidden hover:border-lime-400/30 transition-colors">
+              <a
+                href="https://boardgoal.netlify.app/"
+                target="_blank"
+                rel="noreferrer"
+                className="relative block overflow-hidden bg-[#071c20]"
+                aria-label="Play BoardGoal in a new tab"
+              >
+                <img
+                  src="/BoardGoal/boardgoal_game.png"
+                  alt="BoardGoal puzzle gameplay showing a football, walls, mud tiles, a switch, and a goal"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.015]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#06060f]/80 via-transparent to-transparent" />
+                <span className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full border border-lime-300/30 bg-[#071c20]/85 px-3 py-1.5 text-xs font-bold text-lime-300 backdrop-blur-md">
+                  <span className="h-2 w-2 rounded-full bg-lime-300 animate-pulse" />
+                  Live project
+                </span>
+              </a>
+              <div className="p-6 sm:p-8">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lime-400 mb-2">Browser puzzle game</p>
+                    <h3 className="text-2xl font-black text-white">BoardGoal</h3>
+                  </div>
+                  <a
+                    href="https://boardgoal.netlify.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-lime-400 text-[#07100b] font-bold text-sm hover:bg-lime-300 hover:shadow-xl hover:shadow-lime-400/20 hover:-translate-y-0.5 transition-all duration-200 shrink-0"
+                  >
+                    <Play className="w-4 h-4 fill-current" />
+                    Play BoardGoal
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+                <p className="text-gray-400 leading-relaxed text-sm">
+                  A browser-based football puzzle game where players guide balls into goals while navigating
+                  walls, mud, portals, switches, and timed gates. The responsive frontend includes animated
+                  gameplay, a level creator, community levels, leaderboards, and synchronized progress tracking.
+                  Its Supabase backend secures users and level data with PostgreSQL, Edge Functions,
+                  authentication, Row Level Security, and TOTP-protected admin tools.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-5">
+                  {['JavaScript', 'HTML', 'CSS', 'Supabase', 'PostgreSQL', 'Edge Functions', 'Authentication', 'RLS', 'TOTP'].map(tag => (
+                    <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-lime-400/10 text-lime-200 border border-lime-400/20">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </motion.article>
 
             {/* Platform Replacement */}
             <motion.div variants={fadeUp} className="bg-white/[0.03] border border-white/10 rounded-xl p-6 hover:border-cyan-500/20 transition-colors">
@@ -594,7 +648,7 @@ export default function App() {
         <AnimatedSection id="contact">
           <SectionTitle>Get In Touch</SectionTitle>
           <motion.p variants={fadeUp} className="text-center text-gray-500 mb-10 max-w-md mx-auto text-sm leading-relaxed">
-            Open to new opportunities in frontend, game development, or AI engineering. Let's connect!
+            Open to frontend-focused full-stack opportunities, game development, and AI engineering. Let's connect!
           </motion.p>
 
           <motion.div variants={fadeUp} className="grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">

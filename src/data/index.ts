@@ -5,13 +5,19 @@ export const SKILLS_CATEGORIES: SkillCategory[] = [
     title: 'Languages',
     icon: 'code',
     color: 'from-violet-500 to-purple-600',
-    items: ['JavaScript', 'TypeScript', 'C#', 'HTML', 'CSS'],
+    items: ['JavaScript', 'TypeScript', 'PHP', 'Python', 'C#', 'HTML', 'CSS'],
   },
   {
     title: 'Frontend',
     icon: 'link',
     color: 'from-cyan-500 to-blue-600',
     items: ['React', 'Next.js', 'React Native', 'Tailwind CSS', 'Vite'],
+  },
+  {
+    title: 'Backend & Data',
+    icon: 'server',
+    color: 'from-emerald-500 to-teal-600',
+    items: ['Laravel', 'Supabase', 'PostgreSQL', 'Node.js', 'Express', 'Edge Functions', 'Authentication', 'Row Level Security'],
   },
   {
     title: 'Game Dev',
@@ -22,7 +28,7 @@ export const SKILLS_CATEGORIES: SkillCategory[] = [
   {
     title: 'AI & Data',
     icon: 'brain',
-    color: 'from-emerald-500 to-teal-600',
+    color: 'from-pink-500 to-rose-600',
     items: ['OpenAI GPT-4', 'RAG Systems', 'Machine Learning', 'Computer Vision', 'Pulumi IaC', 'YOLOv10'],
   },
 ];
@@ -58,15 +64,15 @@ export const EXPERIENCE: ExperienceItem[] = [
     accent: 'from-violet-500 to-purple-600',
   },
   {
-    role: 'ReactJS Developer',
+    role: 'Full-Stack Developer',
     company: 'ScaryByte',
     period: '10/2024 – Present',
     location: 'Beirut, Lebanon',
     highlights: [
-      'Developed and maintained user interfaces using React and JSX.',
-      'Created reusable components to enhance code efficiency and maintainability.',
-      'Collaborated with cross-functional teams to implement new features.',
-      'Adhered to best practices ensuring code quality and performance.',
+      'Build and maintain full-stack applications, with a primary focus on polished, responsive frontend experiences.',
+      'Develop reusable React components and scalable interfaces using JavaScript and TypeScript.',
+      'Implement backend features and APIs with PHP/Laravel, Supabase/PostgreSQL, Node.js, and Python.',
+      'Collaborate across multiple products while maintaining code quality, security, and performance.',
     ],
     accent: 'from-cyan-500 to-blue-600',
   },
