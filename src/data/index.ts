@@ -11,13 +11,13 @@ export const SKILLS_CATEGORIES: SkillCategory[] = [
     title: 'Frontend',
     icon: 'link',
     color: 'from-cyan-500 to-blue-600',
-    items: ['React', 'Next.js', 'React Native', 'Tailwind CSS', 'Vite'],
+    items: ['React', 'Next.js', 'React Native', 'Expo', 'Tailwind CSS', 'Vite', 'TanStack Query', 'Zustand', 'i18n / RTL'],
   },
   {
     title: 'Backend & Data',
     icon: 'server',
     color: 'from-emerald-500 to-teal-600',
-    items: ['Laravel', 'Supabase', 'PostgreSQL', 'Node.js', 'Express', 'Edge Functions', 'Authentication', 'Row Level Security'],
+    items: ['Laravel', 'Supabase', 'PostgreSQL', 'Node.js', 'Express', 'Edge Functions', 'Authentication', 'Row Level Security', 'MySQL', 'Firebase', 'Docker', 'PHPUnit', 'PHPStan'],
   },
   {
     title: 'Game Dev',
@@ -69,6 +69,9 @@ export const EXPERIENCE: ExperienceItem[] = [
     period: '10/2024 – Present',
     location: 'Beirut, Lebanon',
     highlights: [
+      'Sole engineer on PICK, a multi-vendor grocery marketplace and delivery platform — Laravel 12 API, React admin portal, and React Native customer/driver app, live in production on Google Play.',
+      'Designed a 40-model Laravel domain with ~680 routes, Sanctum auth with refresh-token rotation, SMS OTP signup, admin 2FA, and Firebase push plus live driver-location tracking.',
+      'Built a 40-page React + TypeScript operations console and a 40+ screen Expo app with Zustand stores, Mapbox order tracking, and full English/Arabic RTL localisation.',
       'Build and maintain full-stack applications, with a primary focus on polished, responsive frontend experiences.',
       'Develop reusable React components and scalable interfaces using JavaScript and TypeScript.',
       'Implement backend features and APIs with PHP/Laravel, Supabase/PostgreSQL, Node.js, and Python.',
