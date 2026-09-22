@@ -69,7 +69,7 @@ export const EXPERIENCE: ExperienceItem[] = [
     period: '10/2024 – Present',
     location: 'Beirut, Lebanon',
     highlights: [
-      'Sole engineer on PICK, a multi-vendor grocery marketplace and delivery platform — Laravel 12 API, React admin portal, and React Native customer/driver app, live in production on Google Play.',
+      'Sole engineer on PICK, a multi-vendor grocery marketplace and delivery platform — Laravel 12 API, React admin portal, and React Native customer/driver app, live in production on Google Play and the App Store.',
       'Designed a 40-model Laravel domain with ~680 routes, Sanctum auth with refresh-token rotation, SMS OTP signup, admin 2FA, and Firebase push plus live driver-location tracking.',
       'Built a 40-page React + TypeScript operations console and a 40+ screen Expo app with Zustand stores, Mapbox order tracking, and full English/Arabic RTL localisation.',
       'Build and maintain full-stack applications, with a primary focus on polished, responsive frontend experiences.',

@@ -339,15 +339,26 @@ export default function App() {
                   <h3 className="text-2xl font-black text-white">PICK</h3>
                   <p className="text-sm font-semibold bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent mt-1">Sole Full-Stack Engineer &nbsp;·&nbsp; Live in production</p>
                 </div>
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.scarybyte.pick"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold text-sm hover:shadow-xl hover:shadow-emerald-600/30 hover:-translate-y-0.5 transition-all duration-200 shrink-0"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  Get it on Google Play
-                </a>
+                <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.scarybyte.pick"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold text-sm hover:shadow-xl hover:shadow-emerald-600/30 hover:-translate-y-0.5 transition-all duration-200"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Get it on Google Play
+                  </a>
+                  <a
+                    href="https://apps.apple.com/us/app/pick-lebanon/id6811068929"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border border-emerald-400/40 text-emerald-300 font-semibold text-sm hover:bg-emerald-500/10 hover:-translate-y-0.5 transition-all duration-200"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Download on the App Store
+                  </a>
+                </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
                 Sole engineer on a three-surface grocery commerce platform — a Laravel 12 JSON API, a React admin
@@ -358,7 +369,7 @@ export default function App() {
                 driver-location streaming. The 40-page admin console runs orders, catalogue, vendors, customers, and
                 CMS; the mobile app delivers live order tracking on Mapbox, full English/Arabic RTL localisation, and
                 a custom design-token UI library. Shipped with PHPUnit, PHPStan, Docker, and a containerised VPS
-                deployment — published on Google Play, iOS release pending.
+                deployment — published on Google Play and the App Store.
               </p>
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {[
