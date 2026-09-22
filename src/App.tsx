@@ -148,7 +148,7 @@ export default function App() {
           <div className="relative px-5 pb-6 sm:px-8 sm:pb-8">
             <div className="absolute -top-16 left-5 sm:-top-20 sm:left-8">
               <img
-                src="/profile/profile_pic.jpg"
+                src="/profile/profile_pic.jpeg"
                 alt="Ahmad Dehaini"
                 className="h-32 w-32 rounded-full border-[5px] border-[#10101c] object-cover object-center shadow-xl sm:h-40 sm:w-40"
               />
