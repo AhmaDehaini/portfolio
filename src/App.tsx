@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import {
   Mail, Phone, MapPin, Linkedin, Github,
   Code2, Gamepad2, Brain, ChevronDown, Server,
-  ExternalLink, Play, Download, BadgeCheck, Building2,
+  ExternalLink, Play, Download, BadgeCheck, Building2, Bot,
 } from 'lucide-react';
 
 import { SKILLS_CATEGORIES, EXPERIENCE, GAMES } from './data';
@@ -163,7 +163,7 @@ export default function App() {
                   <BadgeCheck className="h-6 w-6 shrink-0 text-cyan-400 sm:h-7 sm:w-7" aria-label="Verified profile" />
                 </h1>
                 <p className="mt-2 max-w-2xl text-base leading-relaxed text-gray-300 sm:text-lg">
-                  Frontend-Focused Full-Stack Developer <span className="text-gray-600">|</span> Game Developer <span className="text-gray-600">|</span> AI Enthusiast
+                  AI Builder &amp; Software Engineer <span className="text-gray-600">|</span> Product Problem Solver
                 </p>
                 <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-gray-500">
                   <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" />Beirut, Lebanon</span>
@@ -199,6 +199,13 @@ export default function App() {
                 <Code2 className="h-4 w-4" />
                 View Experience
               </button>
+              <a
+                href="/ai-automation-preview"
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 px-5 py-2.5 text-sm font-semibold text-emerald-300 transition-all duration-200 hover:border-emerald-300 hover:bg-emerald-400/10"
+              >
+                <Bot className="h-4 w-4" />
+                AI Automation
+              </a>
               <a
                 href="/CV/Ahmad%20Dehaini%20CV.pdf"
                 download
@@ -361,7 +368,7 @@ export default function App() {
                 </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Sole engineer on a three-surface grocery commerce platform — a Laravel 12 JSON API, a React admin
+                Sole engineer on a three-surface grocery commerce platform: a Laravel 12 JSON API, a React admin
                 portal, and a cross-platform React Native app serving both customers and delivery drivers. The
                 backend models a 40-entity domain (vendors, branches, products with variants, carts, orders, recipes,
                 promotions, delivery areas) behind a single response envelope, with Sanctum auth, refresh-token
@@ -369,7 +376,7 @@ export default function App() {
                 driver-location streaming. The 40-page admin console runs orders, catalogue, vendors, customers, and
                 CMS; the mobile app delivers live order tracking on Mapbox, full English/Arabic RTL localisation, and
                 a custom design-token UI library. Shipped with PHPUnit, PHPStan, Docker, and a containerised VPS
-                deployment — published on Google Play and the App Store.
+                deployment, and published on Google Play and the App Store.
               </p>
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {[
@@ -448,7 +455,7 @@ export default function App() {
             <motion.div variants={fadeUp} className="bg-white/[0.03] border border-white/10 rounded-xl p-6 hover:border-cyan-500/20 transition-colors">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
                 <div>
-                  <h3 className="text-white font-bold text-lg">Platform Replacement — Full Stack</h3>
+                  <h3 className="text-white font-bold text-lg">Platform Replacement (Full Stack)</h3>
                   <p className="text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mt-0.5">ScaryByte</p>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
@@ -456,7 +463,7 @@ export default function App() {
                 </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Identified that the company was paying <span className="text-white font-semibold">$10,000 / month</span> for a third-party SaaS platform. Built a full replacement from scratch — frontend and backend — in under one month, resulting in immediate savings of $10,000 per month for the company.
+                Identified that the company was paying <span className="text-white font-semibold">$10,000 / month</span> for a third-party SaaS platform. Built a full replacement from scratch, covering both frontend and backend, in under one month, resulting in immediate savings of $10,000 per month for the company.
               </p>
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {[
@@ -482,12 +489,12 @@ export default function App() {
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
                 <div>
                   <h3 className="text-white font-bold text-lg">Data Provider Platform</h3>
-                  <p className="text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mt-0.5">ScaryByte — In Progress</p>
+                  <p className="text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mt-0.5">ScaryByte · In Progress</p>
                 </div>
                 <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-400 border border-cyan-500/25 font-semibold shrink-0 self-start">Concurrent</span>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                Building a data provider platform in parallel — developed simultaneously alongside the platform replacement project, managing both workstreams with AI-assisted tooling under strict human review.
+                Building a data provider platform in parallel with the platform replacement project, managing both workstreams with AI-assisted tooling under strict human review.
               </p>
               <div className="flex flex-wrap gap-2">
                 {['React', 'TypeScript', 'Data Platform', 'AI-Assisted Dev'].map(tag => (
@@ -502,7 +509,7 @@ export default function App() {
               <ul className="space-y-2">
                 {[
                   'Used GitHub Copilot, Claude, Lovable, and other AI tools to accelerate development velocity.',
-                  'Maintained full managerial control — reviewed every AI-generated output before integration.',
+                  'Maintained full managerial control and reviewed every AI-generated output before integration.',
                   'Ensured no full AI autonomy over production code; every detail audited and validated personally.',
                   'Balanced speed of AI tooling with engineering discipline and code quality standards.',
                 ].map((point, i) => (
@@ -551,9 +558,9 @@ export default function App() {
                 <p className="text-gray-400 leading-relaxed text-sm">
                   AuraBrush AI is a full-stack, AI-powered web application built with React, TypeScript, Node.js, and Express.
                   Users generate unique coloring-book-style images through an OpenAI integration that runs on a credit-based
-                  system — controlling how many generations each user can request. Once an image is generated, it can be
+                  system that controls how many generations each user can request. Once an image is generated, it can be
                   painted interactively directly in the browser using a custom painting interface with brush, fill, and eraser
-                  tools. The application includes full backend authentication — signup and login flows — as well as user
+                  tools. The application includes full backend authentication with signup and login flows, as well as user
                   management and credit-tracking logic, giving every session a seamless end-to-end experience from account
                   creation to finished artwork.
                 </p>
@@ -573,7 +580,7 @@ export default function App() {
         <AnimatedSection id="games">
           <SectionTitle>Game Showcase</SectionTitle>
           <motion.p variants={fadeUp} className="text-center text-gray-500 mb-10 max-w-lg mx-auto text-sm leading-relaxed">
-            A selection of mobile games developed with Unity and C# — launched on the App Store and Google Play.
+            A selection of mobile games developed with Unity and C# and launched on the App Store and Google Play.
           </motion.p>
           <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {GAMES.map(game => (
@@ -588,7 +595,7 @@ export default function App() {
         <AnimatedSection id="capstone">
           <SectionTitle>AI Capstone Project</SectionTitle>
           <motion.p variants={fadeUp} className="text-center text-gray-500 mb-10 max-w-xl mx-auto text-sm leading-relaxed">
-            A 40-week intensive program at Zaka.ai — 20 weeks of machine learning &amp; data science foundations followed by a 20-week computer vision capstone project.
+            A 40-week intensive program at Zaka.ai: 20 weeks of machine learning &amp; data science foundations followed by a 20-week computer vision capstone project.
           </motion.p>
           <div className="max-w-4xl mx-auto space-y-6">
 
@@ -614,7 +621,7 @@ export default function App() {
 
             {/* YOLOv10 Per-Anomaly Results */}
             <motion.div variants={fadeUp} className="bg-white/[0.03] border border-white/10 rounded-xl p-6">
-              <h3 className="text-white font-bold text-base mb-5">YOLOv10 — Per-Anomaly Accuracy</h3>
+              <h3 className="text-white font-bold text-base mb-5">YOLOv10: Per-Anomaly Accuracy</h3>
               <div className="space-y-4">
                 {[
                   { label: 'Mental Foramen', accuracy: 80, color: 'from-emerald-500 to-teal-500', note: 'Best result' },
@@ -647,7 +654,7 @@ export default function App() {
               {[
                 { model: 'YOLOv10', note: 'Mental Foramen detection', accuracy: '80%', color: 'from-emerald-500 to-teal-600' },
                 { model: 'DenseNet121', note: 'Best overall classifier', accuracy: '53%', color: 'from-violet-500 to-purple-600' },
-                { model: 'Faster RCNN', note: 'Object detection baseline', accuracy: '—', color: 'from-cyan-500 to-blue-600' },
+                { model: 'Faster RCNN', note: 'Object detection baseline', accuracy: 'N/A', color: 'from-cyan-500 to-blue-600' },
               ].map(m => (
                 <div key={m.model} className="bg-white/[0.03] border border-white/10 rounded-xl p-5 text-center hover:border-white/20 transition-colors">
                   <div className={`h-1 w-10 mx-auto rounded-full bg-gradient-to-r ${m.color} mb-4`} />
@@ -794,7 +801,7 @@ export default function App() {
           className="mb-6 space-y-1"
         >
           <p className="text-gray-400 text-sm">Thank you for taking the time to visit my portfolio.</p>
-          <p className="text-gray-600 text-xs">It means a lot — I hope you enjoyed exploring my work.</p>
+          <p className="text-gray-600 text-xs">It means a lot, and I hope you enjoyed exploring my work.</p>
         </motion.div>
         <p className="text-gray-700 text-xs">
           © {new Date().getFullYear()} Ahmad Dehaini
