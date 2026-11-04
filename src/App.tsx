@@ -254,9 +254,9 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp} className="space-y-4 text-gray-400 leading-relaxed">
               <p>
-                Frontend-focused full-stack developer with a Master's degree in Computer and Communication
-                Engineering. I build complete web applications while specializing in responsive interfaces,
-                thoughtful interactions, and polished user experiences.
+                Software developer with more than 8 years of experience across AI, full-stack web, mobile,
+                and automation, backed by a Master's degree in Computer and Communication Engineering. I build
+                complete products end to end, from AI-powered features and automated workflows to web and mobile apps.
               </p>
               <p>
                 My backend work spans PHP/Laravel, Supabase, PostgreSQL, Node.js, Express, and Python,
@@ -270,7 +270,7 @@ export default function App() {
 
             <motion.div variants={fadeUp} className="grid grid-cols-2 gap-4">
               {[
-                { icon: <Code2 className="w-6 h-6" />, label: 'Frontend Focus', value: 'Primary', color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+                { icon: <Code2 className="w-6 h-6" />, label: 'Software Developer', value: '8+ Years', color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
                 { icon: <Server className="w-6 h-6" />, label: 'Full-Stack Delivery', value: 'End to End', color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
                 { icon: <Gamepad2 className="w-6 h-6" />, label: 'Game Developer', value: '5+ Years', color: 'text-violet-400', bg: 'bg-violet-500/10' },
                 { icon: <Play className="w-6 h-6" />, label: 'Games Launched', value: '20+', color: 'text-orange-400', bg: 'bg-orange-500/10' },
@@ -726,7 +726,7 @@ export default function App() {
         <AnimatedSection id="contact">
           <SectionTitle>Get In Touch</SectionTitle>
           <motion.p variants={fadeUp} className="text-center text-gray-500 mb-10 max-w-md mx-auto text-sm leading-relaxed">
-            Open to frontend-focused full-stack opportunities, game development, and AI engineering. Let's connect!
+            Open to full-stack, mobile, AI engineering, and automation opportunities. Let's connect!
           </motion.p>
 
           <motion.div variants={fadeUp} className="grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
